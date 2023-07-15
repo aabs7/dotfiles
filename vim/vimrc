@@ -1,0 +1,71 @@
+" Highlight search
+set hlsearch
+" Set incremental search
+set incsearch
+" Yank(Copy) directly to system clipboard
+set clipboard=unnamedplus
+
+set tabstop=4
+set noexpandtab
+set autoindent
+
+" Show line numbers (also relative from current line)
+set number relativenumber
+" Basic Commands
+
+" Navigate around window
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+
+" Replace all the searched word in the same file
+nnoremap <Leader>r :%s///g<Left><Left>
+nnoremap <Leader>rc :%s///gc<Left><Left><Left>
+
+" Install the plugins (See Vim-plug github repository for details)
+call plug#begin()
+	" Nerd tree
+	Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+	" Fuzzy file finder
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
+	" Night fly color theme
+	Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
+	" Github extension (git fugitive)
+	Plug 'tpope/vim-fugitive'
+	" Intellisense for vim
+	Plug 'Valloric/YouCompleteMe'
+	" Informative status bar
+	Plug 'vim-airline/vim-airline'
+	" Easy commenting out code
+	Plug 'tpope/vim-commentary'
+call plug#end()
+" Shortcuts for the plugin
+" [Nerd Tree]
+" Enable line in nerd tree
+let NERDTreeShowLineNumbers=1
+" CTRL + n to show nerd tree
+map <C-n> :NERDTreeToggle<CR>
+" Enable showing hidden files
+let g:NERDTreeShowHidden=1
+" Auto refresh nerd tree to show newly added file from outside
+map <C-n> :call NERDTreeToggleAndRefresh()<CR>
+function NERDTreeToggleAndRefresh()
+  :NERDTreeToggle
+  if g:NERDTree.IsOpen()
+    :NERDTreeRefreshRoot
+  endif
+endfunction
+" [Fuzzy file finder]
+" CTRL + p to open fuzzy file finder
+nnoremap <silent> <C-p> :Files<CR>
+" nnoremap <silent> <C-S-p> :Rg<CR>
+nnoremap <silent> <C-o> :Buffers<CR>
+" [Color theme]
+set termguicolors
+colorscheme nightfly
+
+" [Vim-commentary]
+" CTRL + / for commenting and uncommenting
+nnoremap <C-/> <Plug>Commentary 

@@ -1,0 +1,51 @@
+{
+    // VSCode settings 
+    "window.zoomLevel": 2,
+    "editor.rulers": [120],
+    "editor.inlineSuggest.enabled": true,
+    // ignore the extension recommendation in the beginning
+    "extensions.ignoreRecommendations": true,
+    // C++ settings
+    "cpplint.lineLength": 120,
+
+    // For VIM
+    "editor.lineNumbers": "relative",
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true, // Copy paste with system clipboard
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    // Vim Insert mode Key bindings
+    "vim.insertModeKeyBindings": [
+    ],
+    // Vim Normal mode Key bindings
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+        "before": ["K"],
+        "commands": ["lineBreakInsert"],
+        "silent": true
+        }
+    ],
+    // Vim Visual mode Key bindings
+    "vim.visualModeKeyBindingsNonRecursive": [
+        // After pasting using p, store the pasted text in the default register so that it can be pasted again
+        {
+            "before": ["p"],
+            "commands": ["editor.action.clipboardPasteAction"],
+        }
+    ],
+    "vim.leader": "<space>",  // Leader key as 'space'
+    "vim.handleKeys": {
+        "<C-a>": false, // disable ctrl + a for vim, and use select all
+        "<C-f>": false, // disable ctrl + f for vim, and use find
+    },
+
+    // In the OS keyCode, I've changed capslock and escape key
+    "keyboard.dispatch": "keyCode",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    } // Use keyCode instead of code for keybindings
+}

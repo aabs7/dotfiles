@@ -1,0 +1,12 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+
+    {
+        "key": "ctrl+n", 
+        "command": "extension.advancedNewFile"
+    },
+]
