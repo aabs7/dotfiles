@@ -1,0 +1,38 @@
+# Packages (elpa)
+elpa
+python-mode-6.1.3
+
+# Scratch directory
+scratch
+config/init-50-*.el
+
+# Completion Engines
+irony
+semanticdb
+forge-database.sqlite
+ac-comphist.dat
+
+# Auto-Created Files
+.smex-items
+auto-save-list
+recentf
+srecode-map.el
+/tests/cpp_completion/GTAGS
+/tests/cpp_completion/GRTAGS
+/tests/cpp_completion/GPATH
+/bookmarks
+/session.*
+.DS_Store
+/projectile-bookmarks.eld
+/vimish-fold/*
+request/*
+tramp
+transient/*
+elpy/*
+eshell/
+tutorial/
+image-dired/*
+.org-id-locations
+network-security.data
+\#*#
+*~
