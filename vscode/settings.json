@@ -9,7 +9,6 @@
     "cpplint.lineLength": 120,
 
     // For VIM
-    "editor.lineNumbers": "relative",
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true, // Copy paste with system clipboard
@@ -41,11 +40,6 @@
     },
 
     // In the OS keyCode, I've changed capslock and escape key
+    // Use keyCode instead of code for keybindings
     "keyboard.dispatch": "keyCode",
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    } // Use keyCode instead of code for keybindings
 }
