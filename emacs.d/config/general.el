@@ -12,6 +12,8 @@
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ; Make ESC quit prompts
 
+(define-key global-map "\C-cc" 'org-capture)
+
 (dolist (mode '(org-mode-hook
 		term-mode-hook
 		shell-mode-hook
