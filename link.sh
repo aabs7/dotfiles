@@ -9,6 +9,7 @@ ln -s "$(pwd)/vscode/settings.json" ~/.config/Code/User/settings.json
 ln -s "$(pwd)/vscode/keybindings.json" ~/.config/Code/User/keybindings.json
 ln -s "$(pwd)/tmux/tmux.conf" ~/.tmux.conf
 ln -s "$(pwd)/scripts/useful_functions.sh" ~/.useful_functions.sh
+ln -s "$(pwd)/emacs.d" ~/.emacs.d
 
 # Add to .bashrc
 # If not in .bashrc then add
