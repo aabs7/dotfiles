@@ -1,6 +1,6 @@
 {
-    // VSCode settings 
-    "window.zoomLevel": 2,
+    // VSCode settings
+    "window.zoomLevel": 1,
     "editor.rulers": [120],
     "editor.inlineSuggest.enabled": true,
     // ignore the extension recommendation in the beginning
@@ -42,4 +42,18 @@
     // In the OS keyCode, I've changed capslock and escape key
     // Use keyCode instead of code for keybindings
     "keyboard.dispatch": "keyCode",
-}
+}    // color customization
+    "workbench.colorCustomizations": {
+        "editor.background": "#292D3E",
+        "sideBar.background": "#292D3E",
+        "activityBar.background": "#1b1d29",
+        "tab.activeBackground": "#292D3E",
+        "tab.inactiveBackground": "#1d1f2c",
+        "editorGroupHeader.tabsBackground": "#1b1d29",
+        "editorGroupHeader.tabsBorder": "#000000",
+        "editorLineNumber.foreground": "#676E95",
+        "editorLineNumber.activeForeground": "#ffffff",
+        "statusBar.background": "#1b1d29",
+        "sideBar.border": "#000000",
+        "sideBar.foreground": "#ffffff"
+    },
