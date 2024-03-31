@@ -1,9 +1,17 @@
 #+LaTeX_CLASS: article
-#+LaTeX_CLASS_OPTIONS: [letterpaper, 11 pt]
+#+LaTeX_CLASS_OPTIONS: [letterpaper, 12 pt]
 #+OPTIONS: toc:nil
+#+OPTIONS: num:1
 #+LATEX_HEADER: \usepackage{lmodern} % Ensures we have the right font
-#+LATEX_HEADER: \usepackage[margin=2cm]{geometry}
+#+LATEX_HEADER: \usepackage[margin=3cm]{geometry}
 #+LATEX_HEADER: \usepackage[AUTO]{inputenc}
 #+LATEX_HEADER: \usepackage{graphicx}
 #+LATEX_HEADER: \usepackage{amsmath, amsthm, amssymb}
 #+LATEX_HEADER: \usepackage[table, xcdraw]{xcolor}
+
+#+LaTeX_HEADER: \usepackage[T1]{fontenc}
+#+LaTeX_HEADER: \usepackage{mathptmx}
+#+LaTeX_HEADER: \usepackage[scaled=1.0]{helvet}
+#+LaTeX_HEADER: \usepackage{courier}
+
+#+author: Sachita Devi Pandey

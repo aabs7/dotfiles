@@ -1,14 +1,12 @@
 ;; Don't show the splash screen
-(setq inhibit-startup-message t  ; Don't show the initial emacs screen
-      visible-bell nil)            ; Flash when the bell rings
+(setq inhibit-startup-message t)  ; Don't show the initial emacs screen
+(setq visible-bell nil) ; Flash when the bell rings
 
 (tool-bar-mode -1)   ; remove tool bar
 (scroll-bar-mode -1) ; remove scrolling
 (menu-bar-mode -1)   ; remove menu bar above
  
 (global-display-line-numbers-mode 1) ; display line numbers
-
-(set-face-attribute 'default nil :height 180) ; set the font size to 18. Value is 1/10 pt
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ; Make ESC quit prompts
 
@@ -32,3 +30,21 @@
 ;; Magit package for git
 (use-package magit
   :ensure t)
+
+(defun abs/browse-url (url &optional new-window)
+  "Open URL in the default web browser, adding 'http://' if missing."
+  (interactive (browse-url-interactive-arg "URL: "))
+  (setq url (if (string-match-p "^https?://" url)
+                url
+              (concat "http://" url)))
+  (browse-url url new-window))
+
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c C-b") 'abs/browse-url))
+
+(use-package undo-fu)
+;;  :config
+;;  (global-unset-key (kbd "C-z"))
+;;  (global-set-key (kbd "C-z")   'undo-fu-only-undo)
+;;  (global-set-key (kbd "C-S-z") 'undo-fu-only-redo))
+;;(global-set-key (kbd "C-S-z") 'undo-fu-only-redo)

@@ -20,6 +20,7 @@
 (load "~/.emacs.d/config/navigation.el")
 (load "~/.emacs.d/config/visual.el")
 (load "~/.emacs.d/config/org.el")
+(load "~/.emacs.d/config/agenda.el")
 
 ;; don't let customize add stuff to my init.el
 (setq custom-file "~/.emacs.d/config/custom.el")

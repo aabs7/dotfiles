@@ -1,12 +1,16 @@
 {
-    // VSCode settings
-    "window.zoomLevel": 1,
-    "editor.rulers": [120],
+    "editor.rulers": [
+        120
+    ],
     "editor.inlineSuggest.enabled": true,
     // ignore the extension recommendation in the beginning
     "extensions.ignoreRecommendations": true,
     // C++ settings
     "cpplint.lineLength": 120,
+    // C++ ignore warning for using long instead of int16/64
+    "cpplint.filters": [
+        "-runtime/int"
+    ],
 
     // For VIM
     "vim.easymotion": true,
@@ -35,25 +39,58 @@
     ],
     "vim.leader": "<space>",  // Leader key as 'space'
     "vim.handleKeys": {
-        "<C-a>": false, // disable ctrl + a for vim, and use select all
+        // "<C-a>": false, // disable ctrl + a for vim, and use select all
         "<C-f>": false, // disable ctrl + f for vim, and use find
+        "<C-p>": false, // disable ctrl + p for vim, and use fuzzy search
+        // disable Ctrl + k + f for vim, and use vs code formatter
+        "<C-k>": false,
     },
-
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
     // In the OS keyCode, I've changed capslock and escape key
     // Use keyCode instead of code for keybindings
     "keyboard.dispatch": "keyCode",
-}    // color customization
-    "workbench.colorCustomizations": {
-        "editor.background": "#292D3E",
-        "sideBar.background": "#292D3E",
-        "activityBar.background": "#1b1d29",
-        "tab.activeBackground": "#292D3E",
-        "tab.inactiveBackground": "#1d1f2c",
-        "editorGroupHeader.tabsBackground": "#1b1d29",
-        "editorGroupHeader.tabsBorder": "#000000",
-        "editorLineNumber.foreground": "#676E95",
-        "editorLineNumber.activeForeground": "#ffffff",
-        "statusBar.background": "#1b1d29",
-        "sideBar.border": "#000000",
-        "sideBar.foreground": "#ffffff"
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false,
+        "python": true
     },
+    "editor.fontFamily": "JetBrains Mono,'Cascadia Code', monospace",
+    "editor.fontSize": 19,
+    "terminal.integrated.fontSize": 16,
+
+    // color customization
+    // "workbench.colorCustomizations": {
+    //     "editor.background": "#292D3E",
+    //     "sideBar.background": "#292D3E",
+    //     "activityBar.background": "#1b1d29",
+    //     "tab.activeBackground": "#292D3E",
+    //     "tab.inactiveBackground": "#1d1f2c",
+    //     "editorGroupHeader.tabsBackground": "#1b1d29",
+    //     "editorGroupHeader.tabsBorder": "#000000",
+    //     "editorLineNumber.foreground": "#676E95",
+    //     "editorLineNumber.activeForeground": "#ffffff",
+    //     "statusBar.background": "#1b1d29",
+    //     "sideBar.border": "#000000",
+    //     "sideBar.foreground": "#ffffff"
+    // },
+    // Trim whitespace
+    "diffEditor.ignoreTrimWhitespace": false,
+    "notebook.lineNumbers": "on",
+    "window.titleBarStyle": "custom",
+    "workbench.activityBar.location": "top",
+    "cmake.showOptionsMovedNotification": false,
+    "window.zoomLevel": 1,
+
+    // Python formatting
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+    },
+    "flake8.args": [
+        "--max-line-length=120"
+    ],
+    "workbench.colorTheme": "Default Light+"
+}

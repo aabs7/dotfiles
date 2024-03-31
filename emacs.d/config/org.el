@@ -1,6 +1,6 @@
 ;; org mode
 (setq org-lowest-priority ?E) ;; Gives us priorities A through E
-
+(setq org-cycle-emulate-tab nil) ;; call org-cycle in the current subtree wherever the cursor is
 (defun abs/org-mode-setup ()
   (org-indent-mode) ;; use indentation for org files
   (visual-line-mode 1)) ;; wrap around text
@@ -10,11 +10,10 @@
   :config
   (setq org-ellipsis " ▾") ;; Use down arrow instead of ...
   (setq org-hide-emphasis-markers nil)
-  (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time) ;; log time when task is done
   (setq org-log-into-drawer t) ;; time stamps into drawer 
   (setq org-agenda-files
-	'("~/orgfiles/")))
+	'("~/orgfiles/" "~/orgfiles/RAIL/" )))
 
 (use-package org-roam
   :ensure t
@@ -27,10 +26,11 @@
       "%?"
       :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
       :unnarrowed t)
-    ("p" "paper notes" plain
-    (file "~/orgfiles/RoamNotes/templates/t_paper_note.org")
-    :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-    :unnarrowed t)))
+;;    ("p" "paper notes" plain
+;;    (file "~/orgfiles/RoamNotes/templates/t_paper_note.org")
+;;    :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+;;    :unnarrowed t)
+    ))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ("C-c n i" . org-roam-node-insert))
@@ -39,17 +39,20 @@
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "PHONE" "MEETING" "|" "CANCELLED(c@/!)" ))))
 
 (setq org-todo-keyword-faces
-      (quote (("TODO" :foreground "red" :weight bold)
+      (quote (("TODO" :foreground "indian red" :weight bold)
               ("NEXT" :foreground "light blue" :weight bold)
-              ("DONE" :foreground "forest green" :weight bold)
+              ("DONE" :foreground "gray" :weight bold)
               ("WAITING" :foreground "orange" :weight bold)
               ("HOLD" :foreground "magenta" :weight bold)
               ("CANCELLED" :foreground "forest green" :weight bold)
               ("MEETING" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
+
+(custom-set-faces
+  '(org-headline-done ((t (:strike-through t :foreground "gray"))))) ;; strikethrough for done tasks
 
 (setq org-directory "~/orgfiles")
 (setq org-default-notes-file "~/orgfiles/refile.org")
@@ -74,10 +77,29 @@
                                  (org-agenda-files :maxlevel . 9))))
 
 ;; fill left and right part so that text is in the middle
-(defun efs/org-mode-visual-fill ()
+(defun abs/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
-  :hook (org-mode . efs/org-mode-visual-fill))
+  :hook (org-mode . abs/org-mode-visual-fill))
+
+(require 'ox-latex)
+
+(defun my-generate-clock-report-pdf ()
+  "Generate a custom clock report in PDF format for tasks in Org mode files."
+  (interactive)
+  (let* ((current-time (current-time))
+         (start-date (list (nth 4 current-time) (nth 3 current-time) (nth 2 current-time)))
+         (end-date current-time)
+         (output-file "~/orgfiles/clock_report.pdf")) ; Specify the desired output file path
+    (setq org-agenda-files '("~/orgfiles/class.org" "~/orgfiles/lsp_dynamics.org"))
+    (setq org-clock-report-include-clocking-task t)
+    (setq org-clock-clocktable-default-properties '(:maxlevel 2 :scope agenda :block nil :wstart start-date :wend end-date))
+    (org-clock-report)
+    (with-current-buffer "*Clock Report*"
+      (org-latex-export-to-pdf)
+      (write-file output-file))
+    (message "Clock report saved to %s" output-file)))
+(global-set-key (kbd "C-c e") 'my-generate-clock-report-pdf)
