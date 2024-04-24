@@ -14,4 +14,4 @@
 #+LaTeX_HEADER: \usepackage[scaled=1.0]{helvet}
 #+LaTeX_HEADER: \usepackage{courier}
 
-#+author: Sachita Devi Pandey
+#+author: Abhish Khanal

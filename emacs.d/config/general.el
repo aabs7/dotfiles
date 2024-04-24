@@ -18,7 +18,7 @@
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized)) ;; full screen mode on startup
-(add-hook 'window-setup-hook 'toggle-frame-fullscreen) ;; toggle the extended full screen mode after emacs has started
+;;(add-hook 'window-setup-hook 'toggle-frame-fullscreen) ;; toggle the extended full screen mode after emacs has started
 ;; This package shows which key does what after some delay
 (use-package which-key
   :defer 0
@@ -43,8 +43,3 @@
   (define-key org-mode-map (kbd "C-c C-b") 'abs/browse-url))
 
 (use-package undo-fu)
-;;  :config
-;;  (global-unset-key (kbd "C-z"))
-;;  (global-set-key (kbd "C-z")   'undo-fu-only-undo)
-;;  (global-set-key (kbd "C-S-z") 'undo-fu-only-redo))
-;;(global-set-key (kbd "C-S-z") 'undo-fu-only-redo)

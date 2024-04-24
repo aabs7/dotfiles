@@ -10,9 +10,13 @@
 ;;  :defer t
 ;;  :init (load-theme 'spacemacs-dark t))
 
-;; to load icons
-(require 'nerd-icons)
+;; To load icons. Note: you might have to use M-x package-install nerd-icons if this doesn't work. If the icons show unicode character
+;; do M-x nerd-icons-install-fonts
+(use-package nerd-icons)
+
+;; modeline
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))    
+ 

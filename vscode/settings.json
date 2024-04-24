@@ -59,31 +59,15 @@
         "python": true
     },
     "editor.fontFamily": "JetBrains Mono,'Cascadia Code', monospace",
-    "editor.fontSize": 19,
+    "editor.fontSize": 18,
     "terminal.integrated.fontSize": 16,
 
-    // color customization
-    // "workbench.colorCustomizations": {
-    //     "editor.background": "#292D3E",
-    //     "sideBar.background": "#292D3E",
-    //     "activityBar.background": "#1b1d29",
-    //     "tab.activeBackground": "#292D3E",
-    //     "tab.inactiveBackground": "#1d1f2c",
-    //     "editorGroupHeader.tabsBackground": "#1b1d29",
-    //     "editorGroupHeader.tabsBorder": "#000000",
-    //     "editorLineNumber.foreground": "#676E95",
-    //     "editorLineNumber.activeForeground": "#ffffff",
-    //     "statusBar.background": "#1b1d29",
-    //     "sideBar.border": "#000000",
-    //     "sideBar.foreground": "#ffffff"
-    // },
     // Trim whitespace
     "diffEditor.ignoreTrimWhitespace": false,
     "notebook.lineNumbers": "on",
     "window.titleBarStyle": "custom",
     "workbench.activityBar.location": "top",
-    "cmake.showOptionsMovedNotification": false,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0.1,
 
     // Python formatting
     "[python]": {
@@ -92,5 +76,5 @@
     "flake8.args": [
         "--max-line-length=120"
     ],
-    "workbench.colorTheme": "Default Light+"
+    "workbench.colorTheme": "Default Dark+"
 }
