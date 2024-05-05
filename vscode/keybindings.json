@@ -4,9 +4,13 @@
         "key": "ctrl+b",
         "command": "workbench.action.toggleSidebarVisibility"
     },
-
+    // Resize pane shortcuts
     {
-        "key": "ctrl+n", 
-        "command": "extension.advancedNewFile"
+        "key": "ctrl+o",
+        "command": "workbench.action.decreaseViewSize"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "workbench.action.increaseViewSize"
     },
 ]
