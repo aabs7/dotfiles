@@ -3,7 +3,7 @@ set hlsearch
 " Set incremental search
 set incsearch
 " Yank(Copy) directly to system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamedplus,unnamed
 
 set tabstop=4
 set noexpandtab
