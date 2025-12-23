@@ -12,9 +12,7 @@ rm -rf $VSCODE_CONFIG_DIR/keybindings.json
 rm -rf ~/.tmux.conf ~/.useful_functions.sh
 rm -rf ~/.emacs.d
 
-ln -s "$(pwd)/ssh/config" ~/.ssh/config
 ln -s "$(pwd)/vim/vimrc" ~/.vimrc
-ln -s "$(pwd)/git/gitconfig" ~/.gitconfig
 ln -s "$(pwd)/tmux/tmux.conf" ~/.tmux.conf
 ln -s "$(pwd)/scripts/useful_functions.sh" ~/.useful_functions.sh
 ln -s "$(pwd)/emacs.d" ~/.emacs.d
@@ -22,9 +20,20 @@ ln -s "$(pwd)/emacs.d" ~/.emacs.d
 ln -s "$(pwd)/vscode/settings.json" $VSCODE_CONFIG_DIR/settings.json
 ln -s "$(pwd)/vscode/keybindings.json" $VSCODE_CONFIG_DIR/keybindings.json
 
-# Add to .bashrc
-# If not in .bashrc then add
-# echo -e "\n\n # source script functions" >> ~/.bashrc
-# if ! grep -q "source ~/.useful_functions.sh" ~/.bashrc; then
-#     echo "source ~/.useful_functions.sh" >> ~/.bashrc
-# fi
+
+# ask to copy ssh/config to .ssh/config
+read -p "Do you want to remove your ~/.ssh/config and copy template ssh/config? (y/n): "
+if [[ $REPLY =~ ^[Yy](es)?$ ]]; then
+    rm -f ~/.ssh/config
+    cp ssh/config ~/.ssh/config
+fi
+
+# ask to copy git/gitconfig to .gitconfig
+read -p "Do you want to remove your ~/.gitconfig and copy template git/gitconfig? (y/n): "
+if [[ $REPLY =~ ^[Yy](es)?$ ]]; then
+    rm -f ~/.gitconfig
+    cp git/gitconfig ~/.gitconfig
+fi
+
+echo "All done!"
+echo "Please make sure you've installed the install script from "scripts/install.sh""
