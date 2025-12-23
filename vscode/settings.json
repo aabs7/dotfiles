@@ -59,7 +59,8 @@
         "python": true
     },
     "editor.fontFamily": "JetBrains Mono,'Cascadia Code', monospace",
-    "editor.fontSize": 18,
+    "editor.fontSize": 19,
+    "editor.wordWrap": "on",
     "terminal.integrated.fontSize": 16,
 
     // Trim whitespace
