@@ -1,0 +1,14 @@
+[user]
+    name = Your Name
+    email = you@example.com
+    signingkey = YOUR_KEY_ID
+
+[init]
+    defaultBranch = main
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
+# if you want to sign your commits
+[commit]
+    gpgsign = true

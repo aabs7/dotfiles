@@ -1,0 +1,7 @@
+Host [name]
+  HostName [ip_address or domain]
+  User [username]
+  Port [port_number]
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  LocalForward 18888 localhost:8888
