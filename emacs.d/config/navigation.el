@@ -31,11 +31,23 @@
   (evil-collection-init))
 
 
+(use-package evil-nerd-commenter
+  :ensure t
+  :config
+  ;; Normal state (gcc equivalent)
+  (define-key evil-normal-state-map (kbd "s-/") 'evilnc-comment-or-uncomment-lines)
+  ;; Visual state (commenting the selected block)
+  (define-key evil-visual-state-map (kbd "s-/") 'evilnc-comment-or-uncomment-lines)
+  ;; Optional: Insert state (so you don't have to leave insert mode to comment)
+  (define-key evil-insert-state-map (kbd "s-/") 'evilnc-comment-or-uncomment-lines))
+
+
 ;; Helm Configuration
 (use-package helm
   :ensure t
   :init
   (helm-mode 1)
+  (setq helm-input-idle-delay 0.3) ; Prevents lag when typing fast
 
   ;; Helm keybindings
   :config
