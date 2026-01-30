@@ -13,3 +13,10 @@ video2gif() {
   ffmpeg -i "${1}" -i "${1}.png" -filter_complex "fps=${3:-10},scale=${2:-320}:-1:flags=lanczos[x];[x][1:v]paletteuse" "${1}".gif
   rm "${1}.png"
 }
+
+
+runcpp() {
+	g++ ${1}
+	./a.out
+	rm a.out
+}

@@ -5,8 +5,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     export VSCODE_CONFIG_DIR="$HOME/Library/Application Support/Code/User"
 fi
 
-rm -rf ~/.ssh/config ~/.vimrc
-rm -rf ~/.gitconfig
+rm -rf ~/.vimrc
 rm -rf $VSCODE_CONFIG_DIR/settings.json
 rm -rf $VSCODE_CONFIG_DIR/keybindings.json
 rm -rf ~/.tmux.conf ~/.useful_functions.sh
