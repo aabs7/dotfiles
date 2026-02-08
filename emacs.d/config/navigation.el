@@ -42,35 +42,45 @@
   (define-key evil-insert-state-map (kbd "s-/") 'evilnc-comment-or-uncomment-lines))
 
 
-;; Helm Configuration
-(use-package helm
+;; Previously used helm. Helm turned out to be too laggy, when doing M-x, and it felt bloated.
+;; Vertigo is the new choice (with savehist, marginalia, and orderless packages). Works good for me
+;;; Vertico Configuration
+(use-package vertico
   :ensure t
   :init
-  (helm-mode 1)
-  (setq helm-input-idle-delay 0.3) ; Prevents lag when typing fast
-
-  ;; Helm keybindings
+  (vertico-mode 1)
   :config
-  (helm-autoresize-mode 1) ; Helm resizes according to the number of candidates
-  (global-set-key (kbd "C-x C-f") 'helm-find-files) ; Finding files with Helm
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "C-x b") 'helm-buffers-list)
+  (setq vertico-cycle t))
 
-  ;; Rebind tab in Helm
-  :bind
-  (:map helm-map
-        ("<tab>" . helm-execute-persistent-action)
-        ("C-i" . helm-execute-persistent-action)
-        ("C-z" . helm-select-action)))
+;; Persist history over Emacs restarts. Vertico sorts by history position.
+(use-package savehist
+  :init
+  (savehist-mode 1))
 
-;; Projectile Configuration
+;; Annotations (shows file info/docstrings in the minibuffer)
+(use-package marginalia
+  :ensure t
+  :init
+  (marginalia-mode 1))
+
+;; Fuzzy/Space-separated searching
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+;;; Global Keybindings
+(global-set-key (kbd "C-x C-f") 'find-file)
+(global-set-key (kbd "M-x") 'execute-extended-command)
+(global-set-key (kbd "C-x b") 'switch-to-buffer)
+
+;;; Projectile Configuration
 (use-package projectile
   :ensure t
   :config
   (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
   (projectile-mode +1)
-
-  ;; Keybindings for switching projects and opening directories
   :bind
   (:map projectile-mode-map
         ("C-S-p" . projectile-switch-project)
@@ -79,10 +89,8 @@
 
 ;; Additional Evil Mode Keybindings (if any)
 ;; Use C-p for fuzzy file search in current project in both normal and insert mode
-(with-eval-after-load 'evil 
+(with-eval-after-load 'evil
   (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
-  (define-key evil-insert-state-map (kbd "C-p") 'projectile-find-file))
-
-(define-key evil-ex-map "b" 'helm-mini)  ;; buffer using :b in evil mode
-(define-key evil-ex-map "f" 'helm-find-files) ;; find-files using :f
-
+  (define-key evil-insert-state-map (kbd "C-p") 'projectile-find-file)
+  (define-key evil-ex-map "b" 'switch-to-buffer)
+  (define-key evil-ex-map "f" 'find-file))
