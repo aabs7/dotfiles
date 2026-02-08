@@ -1,14 +1,9 @@
-(set-frame-font "JetBrains Mono 18" nil t)
+(set-frame-font "JetBrains Mono 20" nil t)
 ;; doom emacs theme
 (use-package doom-themes
   :ensure t
   :init
-   (load-theme 'doom-palenight t)) 
-
-;; spacemacs theme
-;;(use-package spacemacs-theme
-;;  :defer t
-;;  :init (load-theme 'spacemacs-dark t))
+   (load-theme 'doom-spacegrey t)) 
 
 ;; To load icons. Note: you might have to use M-x package-install nerd-icons if this doesn't work. If the icons show unicode character
 ;; do M-x nerd-icons-install-fonts

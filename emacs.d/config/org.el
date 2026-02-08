@@ -87,6 +87,18 @@
 
 (require 'ox-latex)
 
+;; Enable org-babel languages (to run python and C++ from org mode)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (C . t)))
+
+;; Don't ask before evaluating code blocks
+(setq org-confirm-babel-evaluate nil)
+;; tell org-babel to use python3 instead of python
+(setq org-babel-python-command "python3")
+
+;; This is not complete -> something weird is happening
 (defun my-generate-clock-report-pdf ()
   "Generate a custom clock report in PDF format for tasks in Org mode files."
   (interactive)

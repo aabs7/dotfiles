@@ -1,10 +1,9 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives (append package-archives
-			       '(("melpa" . "http://melpa.org/packages/")
+			       '(("melpa" . "https://melpa.org/packages/")
 				 ("melpa-stable" . "https://stable.melpa.org/packages/")
-				 ("gnu" . "http://elpa.gnu.org/packages/")
-				 ("elpy" . "http://jorgenschaefer.github.io/packages/"))))
+				 ("gnu" . "https://elpa.gnu.org/"))))
 
 ;; BOOTSTRAP USE-PACKAE
 (package-initialize)
