@@ -40,3 +40,5 @@ network-security.data
 
 emacs.d/org-persist
 *.eld
+projectile.cache
+history.el
