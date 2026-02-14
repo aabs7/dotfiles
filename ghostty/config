@@ -1,0 +1,13 @@
+font-size = 14
+
+# keybindings
+keybind = global:cmd+backquote=toggle_quick_terminal
+quick-terminal-size = 50%,60%
+## tmux like pane
+keybind = ctrl+quote=new_split:down
+keybind = ctrl+5=new_split:right
+# navgiation between panes
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+l=goto_split:right

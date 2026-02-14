@@ -6,8 +6,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 rm -rf ~/.vimrc
-rm -rf $VSCODE_CONFIG_DIR/settings.json
-rm -rf $VSCODE_CONFIG_DIR/keybindings.json
+rm -rf "$VSCODE_CONFIG_DIR/settings.json"
+rm -rf "$VSCODE_CONFIG_DIR/keybindings.json"
 rm -rf ~/.tmux.conf ~/.useful_functions.sh
 rm -rf ~/.emacs.d
 
@@ -16,8 +16,11 @@ ln -s "$(pwd)/tmux/tmux.conf" ~/.tmux.conf
 ln -s "$(pwd)/scripts/useful_functions.sh" ~/.useful_functions.sh
 ln -s "$(pwd)/emacs.d" ~/.emacs.d
 # link vscode settings
-ln -s "$(pwd)/vscode/settings.json" $VSCODE_CONFIG_DIR/settings.json
-ln -s "$(pwd)/vscode/keybindings.json" $VSCODE_CONFIG_DIR/keybindings.json
+ln -s "$(pwd)/vscode/settings.json" "$VSCODE_CONFIG_DIR/settings.json"
+ln -s "$(pwd)/vscode/keybindings.json" "$VSCODE_CONFIG_DIR/keybindings.json"
+# ghostty
+mkdir -p ~/.config/ghostty
+ln -s "$(pwd)/ghostty/config" ~/.config/ghostty/config
 
 
 # ask to copy ssh/config to .ssh/config
