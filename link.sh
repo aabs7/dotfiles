@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Set vscode config directory according to linux or mac
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     export VSCODE_CONFIG_DIR="$HOME/.config/Code/User"

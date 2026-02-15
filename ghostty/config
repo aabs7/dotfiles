@@ -1,6 +1,7 @@
 font-size = 14
 
 # keybindings
+keybind = f11=toggle_fullscreen
 keybind = global:cmd+backquote=toggle_quick_terminal
 quick-terminal-size = 50%,60%
 ## tmux like pane
